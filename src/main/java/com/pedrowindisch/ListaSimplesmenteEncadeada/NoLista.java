@@ -1,4 +1,4 @@
-package com.pedrowindisch.ListaEncadeada;
+package com.pedrowindisch.ListaSimplesmenteEncadeada;
 
 public class NoLista<T> {
     private T info;

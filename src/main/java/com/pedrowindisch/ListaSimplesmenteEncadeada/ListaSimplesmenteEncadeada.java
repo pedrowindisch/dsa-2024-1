@@ -1,9 +1,9 @@
-package com.pedrowindisch.ListaEncadeada;
+package com.pedrowindisch.ListaSimplesmenteEncadeada;
 
-public class ListaEncadeada<T> {
+public class ListaSimplesmenteEncadeada<T> {
     private NoLista<T> primeiro;
     
-    public ListaEncadeada() {
+    public ListaSimplesmenteEncadeada() {
     
     }
 
@@ -102,12 +102,12 @@ public class ListaEncadeada<T> {
 
         NoLista<T> atual = primeiro;
         while (idx > 0) {
+            if (atual == null)
+                throw new IndexOutOfBoundsException();
+
             atual = atual.getProximo();
             idx = idx - 1;
         }
-
-        if (atual == null)
-            throw new IndexOutOfBoundsException();
 
         return atual;
     }

@@ -1,31 +1,32 @@
-package ListaEncadeada;
+package ListaSimplesmenteEncadeada;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.pedrowindisch.ListaEncadeada.ListaEncadeada;
-import com.pedrowindisch.ListaEncadeada.NoLista;
+import com.pedrowindisch.ListaSimplesmenteEncadeada.ListaSimplesmenteEncadeada;
+import com.pedrowindisch.ListaSimplesmenteEncadeada.NoLista;
 
-public class ListaEncadeadaTest {
+public class ListaSimplesmenteEncadeadaTest {
     @Test
     public void testListaVazia() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         assertTrue(lista.estaVazia());
     }
 
     @Test
     public void testListaNaoVazia() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         assertFalse(lista.estaVazia());
     }
 
     @Test
     public void testInclusaoDeUmNumero() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
 
         assertTrue(lista.getPrimeiro().getInfo() == 5);
@@ -34,7 +35,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testInclusaoDeTresNumeros() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -44,7 +45,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testBuscaDeDadosNaPrimeiraPosicao() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -57,7 +58,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testBuscaDeDadosNoMeioDaLista() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -70,7 +71,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testBuscaDeDadoInexistente() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -82,7 +83,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testExclusaoDePrimeiroElementoDaLista() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -94,7 +95,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testExclusaoDeElementoDoMeioDaLista() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -106,7 +107,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testObterNoRetornaNoDaPosicao0() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -118,7 +119,7 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testObterNoRetornaNoDaUltimaPosicao() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -130,7 +131,7 @@ public class ListaEncadeadaTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testObterNoRecusaTentativaDeLerPosicaoInvalida() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
@@ -141,13 +142,13 @@ public class ListaEncadeadaTest {
 
     @Test
     public void testObterComprimentoParaListaVazia() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         assertTrue(lista.obterComprimento() == 0);
     }
 
     @Test
     public void testObterComprimentoParaListaNaoVazia() {
-        ListaEncadeada<Integer> lista = new ListaEncadeada<Integer>();
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
         lista.inserir(5);
         lista.inserir(10);
         lista.inserir(15);
