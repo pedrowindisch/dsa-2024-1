@@ -66,7 +66,7 @@ public class ListaEncadeada<T> {
         return comprimento;
     }
 
-    public NoLista<T> obterNo(int idx) {
+    public NoLista<T> depr__obterNo(int idx) {
         if (idx < 0 || idx >= obterComprimento())
             throw new IndexOutOfBoundsException();
 
@@ -74,6 +74,40 @@ public class ListaEncadeada<T> {
         for (int i = 0; i < idx; i++) {
             atual = atual.getProximo();
         }
+
+        return atual;
+    }
+
+    public NoLista<T> depr___obterNo(int idx) {
+        if (idx < 0)
+            throw new IndexOutOfBoundsException();
+
+        NoLista<T> atual = primeiro;
+        for (int i = 0; i <= idx; i++) {
+            if (atual == null)
+                break;
+
+            if (i == idx)
+                return atual;
+
+            atual = atual.getProximo();
+        }
+
+        throw new IndexOutOfBoundsException();
+    }
+    
+    public NoLista<T> obterNo(int idx) {
+        if (idx < 0)
+            throw new IndexOutOfBoundsException();
+
+        NoLista<T> atual = primeiro;
+        while (idx > 0) {
+            atual = atual.getProximo();
+            idx = idx - 1;
+        }
+
+        if (atual == null)
+            throw new IndexOutOfBoundsException();
 
         return atual;
     }
