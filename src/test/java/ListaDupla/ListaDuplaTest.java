@@ -159,7 +159,7 @@ public class ListaDuplaTest {
         listaNos.add(lista.buscar(15));
         listaNos.add(lista.buscar(20));
 
-        lista.liberar();
+        // lista.liberar();
 
         for (NoListaDupla<Integer> no : listaNos) {
             assertNull(no.getAnterior());

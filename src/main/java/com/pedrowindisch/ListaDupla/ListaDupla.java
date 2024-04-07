@@ -36,7 +36,7 @@ public class ListaDupla<T> {
         return atual;
     }
 
-    public void retirar(T valor) {
+    public void depr__retirar(T valor) {
         NoListaDupla<T> atual = primeiro;
         while (atual != null && !atual.getInfo().equals(valor))
             atual = atual.getProximo();
@@ -54,6 +54,21 @@ public class ListaDupla<T> {
         }
     }
 
+    public void retirar(T valor) {
+        NoListaDupla<T> no = buscar(valor);
+
+        if (no == null)
+            return;
+
+        if (no.getAnterior() != null)
+            no.getAnterior().setProximo(no.getProximo());
+        else
+            primeiro = no.getProximo();
+
+        if (no.getProximo() != null)
+            no.getProximo().setAnterior(no.getAnterior());
+    }
+
     public void exibirOrdemInversa() {
         NoListaDupla<T> atual = primeiro;
         while (atual != null && atual.getProximo() != null)
@@ -65,7 +80,7 @@ public class ListaDupla<T> {
         }
     }
 
-    public void liberar() {
+    public void depr__liberar() {
         NoListaDupla<T> ultimo = primeiro;
         while (ultimo != null && ultimo.getProximo() != null)
             ultimo = ultimo.getProximo();
@@ -73,7 +88,7 @@ public class ListaDupla<T> {
         while (ultimo != null) {
             NoListaDupla<T> atual = ultimo;
             ultimo = ultimo.getAnterior();
-            
+
             atual.setProximo(null);
             atual.setAnterior(null);
         }

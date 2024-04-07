@@ -155,4 +155,66 @@ public class ListaSimplesmenteEncadeadaTest {
         lista.inserir(20);
         assertTrue(lista.obterComprimento() == 4);
     }
+
+    @Test
+    public void testRetirarTodos() {
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
+        lista.inserir(5);
+        lista.inserir(10);
+        lista.inserir(15);
+        lista.inserir(15);
+        lista.inserir(20);
+
+        assertTrue(lista.obterComprimento() == 5);
+
+        lista.retirarTodos(15);
+
+        assertTrue(lista.obterComprimento() == 3);
+        assertTrue(lista.toString().equals("20,10,5"));
+    }
+
+    @Test
+    public void testRetirarTodos2() {
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
+        lista.inserir(5);
+        lista.inserir(15);
+        lista.inserir(10);
+        lista.inserir(15);
+        lista.inserir(20);
+
+        assertTrue(lista.obterComprimento() == 5);
+
+        lista.retirarTodos(10);
+
+        assertTrue(lista.obterComprimento() == 4);
+        assertTrue(lista.toString().equals("20,15,15,5"));
+    }
+
+
+    @Test
+    public void testRetirarTodos3() {
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
+        lista.inserir(5);
+
+        assertTrue(lista.obterComprimento() == 1);
+
+        lista.retirarTodos(5);
+
+        assertTrue(lista.obterComprimento() == 0);
+        assertTrue(lista.toString().equals(""));
+
+        lista.inserir(5);
+        assertTrue(lista.obterComprimento() == 1);
+        assertTrue(lista.toString().equals("5"));
+    }
+
+    
+    @Test
+    public void testRetirarTodosVazia() {
+        ListaSimplesmenteEncadeada<Integer> lista = new ListaSimplesmenteEncadeada<Integer>();
+        assertTrue(lista.obterComprimento() == 0);
+        lista.retirarTodos(5);
+        assertTrue(lista.obterComprimento() == 0);
+        assertTrue(lista.toString().equals(""));
+    }
 }

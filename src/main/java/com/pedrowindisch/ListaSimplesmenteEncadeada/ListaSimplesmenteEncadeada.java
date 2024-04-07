@@ -127,4 +127,23 @@ public class ListaSimplesmenteEncadeada<T> {
 
         return str;
     }
+
+    public void retirarTodos(T valor) {
+        NoLista<T> atual = primeiro;
+        NoLista<T> anterior = null;
+
+        while (atual != null) {
+            if (atual.getInfo().equals(valor)) {
+                if (anterior != null) {
+                    anterior.setProximo(atual.getProximo());
+                } else {
+                    primeiro = atual.getProximo();
+                }
+            } else {
+                anterior = atual;
+            }
+
+            atual = atual.getProximo();
+        }
+    }
 }

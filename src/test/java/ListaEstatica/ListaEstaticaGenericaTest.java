@@ -160,4 +160,42 @@ public class ListaEstaticaGenericaTest {
 
         assertEquals(lista.toString(), "25,20,15,10,5");
     }
+
+    @Test
+    public void testRetirarElementos() {
+        ListaEstaticaGenerica<Integer> lista = new ListaEstaticaGenerica<Integer>();
+
+        lista.inserir(10);
+        lista.inserir(20);
+        lista.inserir(30);
+        lista.inserir(40);
+        lista.inserir(50);
+        lista.inserir(60);
+
+        lista.retirarElementos(2, 4);
+
+        assertEquals(lista.toString(), "10,20,60");
+    }
+    
+
+    @Test
+    public void testRetirarElementos2() {
+        ListaEstaticaGenerica<Integer> lista = new ListaEstaticaGenerica<Integer>();
+        
+        lista.inserir(10);
+        lista.inserir(20);
+        lista.inserir(30);
+        lista.inserir(40);
+        lista.inserir(50);
+        lista.inserir(60);
+        lista.inserir(60);
+        lista.inserir(60);
+        lista.inserir(60);
+        lista.inserir(60);
+        lista.inserir(60);
+
+        lista.retirarElementos(2, 3);
+
+        assertEquals(lista.toString(), "10,20,50,60,60,60,60,60,60");
+    }
 }

@@ -91,14 +91,6 @@ public class ListaEstaticaGenerica<T> {
     }
 
     public void inverter() {
-        // Object[] novo = new Object[this.info.length];
-
-        // for (int i = 0; i < this.tamanho; i++) {
-        //     novo[i] = this.info[this.tamanho - i - 1];
-        // }
-
-        // this.info = novo;
-
         int qtyToChange = tamanho / 2;
 
         int currentIndex = 0;
@@ -110,6 +102,18 @@ public class ListaEstaticaGenerica<T> {
             currentIndex++;
             qtyToChange--;
         }
+    }
+
+    public void retirarElementos(int inicio, int fim) {
+        int qtdElementosRemover = fim - inicio + 1;
+        for (int i = inicio; i <= fim; i ++)
+            this.info[i] = null;
         
+        for (int i = fim + 1; i < tamanho; i++) {
+            this.info[i - qtdElementosRemover] = this.info[i];
+            this.info[i] = null;
+        }
+        
+        tamanho -= qtdElementosRemover;
     }
 }
