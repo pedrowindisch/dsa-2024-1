@@ -30,7 +30,7 @@ public class PilhaVetor<T> implements Pilha<T> {
     }
 
     public T peek() throws PilhaVaziaException {
-        if (this.tamanho == 0)
+        if (estaVazia())
             throw new PilhaVaziaException();
 
         return this.info[this.tamanho - 1];
@@ -41,9 +41,12 @@ public class PilhaVetor<T> implements Pilha<T> {
     }
 
     public void liberar() {
-        for (int i = 0; i < this.tamanho; i++)
-            this.info[i] = null;
+        // for (int i = 0; i < this.tamanho; i++)
+        //     this.info[i] = null;
 
+        // this.tamanho = 0;
+
+        this.info = (T[]) new Object[limite];
         this.tamanho = 0;
     }
     
