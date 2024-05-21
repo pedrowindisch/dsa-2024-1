@@ -1,5 +1,7 @@
 package com.pedrowindisch.ArvoreBinaria;
 
+import java.io.Console;
+
 public class ArvoreBinaria<T> {
     private NoArvoreBinaria<T> raiz;
 
@@ -46,5 +48,12 @@ public class ArvoreBinaria<T> {
             return 0;
 
         return 1 + contarNos(no.getEsquerda()) + contarNos(no.getDireita());
+    }
+
+    public int contarNosInternos(NoArvoreBinaria<T> sa) {
+        if (sa == null || (sa.getDireita() == null && sa.getEsquerda() == null))
+            return 0;
+
+        return 1 + contarNosInternos(sa.getEsquerda()) + contarNosInternos(sa.getDireita());
     }
 }

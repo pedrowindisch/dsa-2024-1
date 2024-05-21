@@ -16,6 +16,9 @@ public class FilaVetor<T> implements Fila<T> {
     public void inserirValor(T valor) {
         if (tamanho == limite)
             throw new FilaCheiaException();
+
+        this.info[(this.inicio + tamanho) % this.limite] = valor;
+        this.tamanho++;
     }
 
     public boolean estaVazia() {
@@ -26,11 +29,16 @@ public class FilaVetor<T> implements Fila<T> {
         if (this.estaVazia())
             throw new FilaVaziaException();
 
-        return null;
+        return (T) this.info[this.inicio % this.limite];
     }
 
     public T retirar() {
-        throw new UnsupportedOperationException("Unimplemented method 'retirar'");
+        T valor = peek();
+
+        inicio = (inicio + 1) % limite;
+        tamanho = tamanho - 1;
+
+        return valor;
     }
 
     public void liberar() {
@@ -48,5 +56,16 @@ public class FilaVetor<T> implements Fila<T> {
 
     public int getLimite() {
         return this.limite;
-    } 
+    }
+    
+    public void encolher() {
+        Object[] novoVetor = new Object[this.tamanho];
+
+        for (int i = 0; i < tamanho; i++)
+            novoVetor[i] = this.info[(this.inicio + i) % this.limite];
+
+        this.info = novoVetor;
+        this.limite = this.tamanho;
+        this.inicio = 0;
+    }
 }

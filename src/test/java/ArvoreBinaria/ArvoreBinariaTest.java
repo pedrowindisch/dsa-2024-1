@@ -115,19 +115,38 @@ public class ArvoreBinariaTest {
     
     @Test
     public void testContarNos() {
+            ArvoreBinaria<Integer> arvore = new ArvoreBinaria<Integer>();
+
+            arvore.setRaiz(new NoArvoreBinaria<Integer>(
+                            1,
+                            new NoArvoreBinaria<Integer>(
+                                            2,
+                                            null,
+                                            new NoArvoreBinaria<Integer>(4)),
+                            new NoArvoreBinaria<Integer>(
+                                            3,
+                                            new NoArvoreBinaria<Integer>(5),
+                                            new NoArvoreBinaria<Integer>(6))));
+
+            Assert.assertEquals(arvore.contarNos(), 6);
+    }
+    
+    @Test
+    public void testContarNosInternos() {
         ArvoreBinaria<Integer> arvore = new ArvoreBinaria<Integer>();
 
-        arvore.setRaiz(new NoArvoreBinaria<Integer>(
+        NoArvoreBinaria<Integer> raiz = new NoArvoreBinaria<Integer>(
                 1,
                 new NoArvoreBinaria<Integer>(
-                        2,
-                        null,
-                        new NoArvoreBinaria<Integer>(4)),
+                                2,
+                                null,
+                                new NoArvoreBinaria<Integer>(4)),
                 new NoArvoreBinaria<Integer>(
-                        3,
-                        new NoArvoreBinaria<Integer>(5),
-                        new NoArvoreBinaria<Integer>(6))));
+                                3,
+                                new NoArvoreBinaria<Integer>(5),
+                                        new NoArvoreBinaria<Integer>(6)));
+        arvore.setRaiz(raiz);
 
-        Assert.assertEquals(arvore.contarNos(), 6);
-    }
+        Assert.assertEquals(arvore.contarNosInternos(raiz), 3);
+}
 }

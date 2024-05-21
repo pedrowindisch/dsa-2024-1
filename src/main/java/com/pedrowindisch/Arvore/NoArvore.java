@@ -33,4 +33,9 @@ public class NoArvore<T> {
     public void setPrimeiro(NoArvore<T> primeiro) {
         this.primeiro = primeiro;
     }
+
+    public void inserirFilho(NoArvore<T> sa) {
+        sa.setProximo(this.primeiro);
+        this.setPrimeiro(sa);
+    }
 }
